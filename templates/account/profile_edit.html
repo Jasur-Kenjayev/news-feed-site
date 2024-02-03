@@ -1,0 +1,26 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% block title %} Foydalanuvchi malumotlarini o'zgartirish {% endblock title %}
+
+{% block content %}
+<section id="sliderSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="slick_slider">
+            <div class="container">
+                <center>
+                    <h1>Foydalanuvchi Malumotlarini O'zgartirish</h1><br>
+                    <p>Siz o'zingiz haqingizdagi malumotlarni quydagi form orqali o'zgartirishingiz mumkun</p><br>
+
+                    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                        {{ user_form.as_p }}
+                        {{ profile_form.as_p }}<br>
+                        <button type="submit" class="btn btn-primary">O'zgarishni saqlash</button><br>
+                    </form>
+                <center>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock content %}

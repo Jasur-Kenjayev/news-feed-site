@@ -1,0 +1,70 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% load hitcount_tags %}
+{% block title %} {{ news.title }} {% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/comment.css' %}">
+<section id="sliderSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="slick_slider">
+                <center>
+                    <p class="h2">{{ news.title }}<br></p>
+                    <span><p><i class="fa fa-clock-o" style="font-size:15px"></i> {{ news.publish_time }}    <i class="fa fa-eye" style="font-size:15px"></i>
+                        {% get_hit_count for news %}  <i class="fa fa-comments-o" style="font-size:15px"></i>  {{ comment_count }} <br></p></span>
+                </center>
+                    <img src="{{ news.image.url }}" alt="{{ news.title }}"><br><br>
+                <br><p class="font-weight-normal">{{ news.body | linebreaks}}</p>
+
+                {% if request.user.is_authenticated and request.user.is_superuser %}
+            <div class="card-footer text-center">
+            <a href="{% url "news_update" news.slug %}">Tahrirlash</a>
+            <a href="{% url "news_delete" news.slug %}">O'chirish</a>
+            </div>
+                {% endif %}
+        </div>
+      </div>
+    </div>
+</section>
+
+    <div class="comment-title">
+            izohlar
+         <span class="h-space half"></span>
+         <span class="badge">{{ comment_count }}</span>
+     </div>
+    {% for comment in comments %}
+<div class="post__comments">
+    <div class="comment-title">
+        <div class="comments" style="padding: 10px">
+            <p class="font-weight-bold">
+                {{ comment.user }}
+            <span class="text-muted font-weight-normal">
+                {{ comment.created_time }}
+            </span>
+            </p>
+            {{ comment.body | linebreaks }}
+        </div>
+    </div>
+</div>
+    {% endfor %}
+
+{% if user.is_authenticated %}
+<div class="post__comments">
+        <form method="POST" style="margin-top: 1.3em">{% csrf_token %}
+            {{ comment_form.as_p }}
+            <button type="submit" class="btn btn-primary btn-lg">
+                Yuborish
+            </button>
+        </form>
+        {% else %}
+    <div class="post__comments">
+        <p class="tal-center">
+            Izoh qoldirish uchun saytda ro'yxatdan o'ting</p>
+        <p class="tal-center">
+        <button class="btn btn-primary btn-lg"><a href="{% url 'login' %}">KIRISH</a> </button>
+        </p>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

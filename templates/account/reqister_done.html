@@ -1,0 +1,23 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% block title %} Muvaffaqiyatli ro'yxatdan o'tdingiz {% endblock title %}
+
+{% block content %}
+<section id="sliderSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="slick_slider">
+            <div class="container">
+                <center>
+                    <h1>{{ new_user.first_name }}, Xush Kelibsiz</h1><br>
+
+                    <p>Muvaffaqiyatli ro'yxatdan o'tdingiz</p>
+                    <p>Endi saytga <a  style="color: red;" href="{% url 'login' %}">Login</a> qilishingiz mumkun! </p>
+                </center>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+{% endblock content %}

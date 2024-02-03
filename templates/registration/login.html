@@ -1,0 +1,37 @@
+{% extends 'news/base.html' %}
+
+{% load static %}
+{% block title %} Login Sahifasi {% endblock title %}
+
+{% block content %}
+
+<section id="sliderSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="slick_slider">
+            <div class="container">
+                <center>
+                    <form method="post">{% csrf_token %}
+                        <h1 style="margin: 0 0 24px 0;">Login</h1>
+                        {{ as_p }}
+                        <div data-mdb-input-init class="form-outline mb-4">
+                            <input type=" text" class="form-control"  name="username" id="username" placeholder="Username"/><br>
+                        </div>
+                        <div data-mdb-input-init class="form-outline mb-4">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password"/>
+                        </div><br>
+                        <button type="submit" class="btn btn-primary">Login</button><br>
+                        <h5><a href="{% url 'password_reset' %}" class="text-danger">Kalit so'zni yangilash</a> </h5>
+                        <table>
+                            <tr>
+                                <th>Akkauntingiz yo'qmi?  <a href="{% url 'user_register' %}" style="color:red">Ro'yxatdan o'tish</a></th>
+                            </tr>
+                        </table>
+                    </form>
+                <center>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock content %}

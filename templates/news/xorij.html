@@ -1,0 +1,37 @@
+{% extends "news/base.html" %}
+{% load static %}
+
+{% block title %} Xorij Xabarlar {% endblock title %}
+
+{% block content %}
+    {% for news in xorij_yangiliklari %}
+<section id="sliderSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="slick_slider">
+            <a href="{{ news.get_absolute_url }}">
+                <img src="{{ news.image.url }}" width="150"  height="100" alt="Blog 1 image">
+            </a>
+            <div class="blog-item__info">
+                <div class="blog-item__main-info">
+                    <span class="blog-item__date">
+                        <p><i class="fa fa-clock-o"></i>  {{ news.publish_time }}<br></p>
+                    </span>
+                    <div>
+                        <h5 class="blog-item__title">
+                            <a href="{{ news.get_absolute_url }}">
+                                {{ news.title }}
+                            </a>
+                        </h5>
+                        <p class="blog-item__description">
+                            {{ news.body | truncatewords:10 }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+    {% endfor %}
+{% endblock content %}

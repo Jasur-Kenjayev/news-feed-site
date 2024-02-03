@@ -1,0 +1,18 @@
+.post__comments {
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.tal-center {
+    text-align: center;
+}
+
+.comment-title {
+    font-weight: 700;
+    padding: 12px 24px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.125em;
+    -webkit-box-align: center;
+    align-items: center;
+}

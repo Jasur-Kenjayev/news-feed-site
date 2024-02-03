@@ -1,0 +1,20 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% block title %} Login Sahifasi {% endblock title %}
+
+{% block content %}
+<section id="sliderSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="slick_slider">
+            <div class="container">
+                <center>
+                    <h2>Logout</h2><br>
+                    <p>Siz veb-saytdan chiqdingiz <a style="color: red;" href="{% url 'login' %}">Qaytadan Kirish</a> </p>
+               </center>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock content %}

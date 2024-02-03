@@ -1,0 +1,25 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% block title %} Ro'yxatdan O'tish {% endblock title %}
+
+{% block content %}
+<section id="sliderSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="slick_slider">
+            <div class="container">
+                <center>
+                    <p><h2>Ro'yxatdan o'tish</h2><br></p>
+                    <p>Ro'yxatdan o'tish uchun quydagi formani to'ldiring:</p><br>
+
+                    <form method="post">{% csrf_token %}
+                        {{ user_form.as_p }}
+                        <button type="submit" class="btn btn-primary">Ro'yxatdan o'tish</button><br>
+                    </form>
+                </center>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock content %}

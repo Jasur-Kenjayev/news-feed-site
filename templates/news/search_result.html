@@ -1,0 +1,27 @@
+{% extends 'news/base.html' %}
+
+{% block title %}Qidiruv Natijasi {% endblock %}
+
+{% block content %}
+<section id="sliderSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="slick_slider">
+            <div class="container">
+                    <h2 class="text-center" style="color:#D083CF;">QIDIRUV NATIJASI</h2><br>
+                    {% for yangilik in barcha_yangiliklar %}
+                        <h4 class="fst-normal">
+                            <a href="{% url 'news_detail_page' yangilik.slug %}" class="text-danger">{{ yangilik.title }}</a>
+                        </h4>
+
+                            <a href="{{ yangilik.get_absolute_url }}">
+                                <img src="{{ yangilik.image.url }}" width="150"  height="100" alt="Blog 1 image">
+                            </a>
+                        <p class="fst-normal">{{ yangilik.body | truncatewords:30 }}</p>
+                    {% endfor %}
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}

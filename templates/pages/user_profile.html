@@ -1,0 +1,39 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %}Foydalanuvchi profili{% endblock title %}
+
+{% block content %}
+<section id="sliderSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="slick_slider">
+            <div class="container">
+                <center>
+                    <p><h3 style="color: green;">Xush kelibsiz, {{ user.username }}</h3></p>
+                    <p><h2 style="color: blue;">Siz haqingizdagi ma'lumotlar</h2></p><br>
+                    <table style="color: #D083CF;">
+                        <tr>
+                            <th>Username: {{ user.username }}</th>
+                        </tr>
+                        <tr>
+                            <th>Email: {{ user.email }}</th>
+                        </tr>
+                        <tr>
+                            <th>Ism: {{ user.first_name }}</th>
+                        </tr>
+                        <tr>
+                            <th>Familiya: {{ user.last_name }}</th>
+                        </tr>
+                    </table><br>
+                    <h4><a href="{% url 'password_change' %}" style="color:#D083CF">Parolni almashtirish</a> | <a href="{% url 'edit_user_information' %}" style="color:red">Profilni o'zgartirish</a> </h4><h3><a href="{% url 'logout' %}" class="text-danger">Log out</a> </h3>
+                <center>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+{% endblock content %}
+
+<!--                    <img src="{{ profile.photo.url }}" width="30%"><br>-->
