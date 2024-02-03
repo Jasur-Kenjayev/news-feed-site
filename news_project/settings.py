@@ -114,8 +114,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/newsterm/news-termiz.uz/django-site/staticfiles'
-STATICFILES_DIRS = ('/home/newsterm/news-termiz.uz/django-site/static',)
+STATIC_ROOT = '/home/newsterm/news-termiz.uz/staticfiles'
+STATICFILES_DIRS = ('/home/newsterm/news-termiz.uz/static',)
 
 # STATIC_ROOT = BASE_DIR / 'staticfiles'
 # STATICFILES_DIRS = [BASE_DIR / 'static']
@@ -127,7 +127,7 @@ STATICFILES_FINDERS = [
 
 MEDIA_URL = 'media/'
 # MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_ROOT = '/home/newsterm/news-termiz.uz/django-site/media'
+MEDIA_ROOT = '/home/newsterm/news-termiz.uz/media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
