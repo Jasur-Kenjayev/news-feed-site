@@ -5,6 +5,17 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/comment.css' %}">
+<style>
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+}
+</style>
 <section id="sliderSection">
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-8">
@@ -14,13 +25,13 @@
                     <span><p><i class="fa fa-clock-o" style="font-size:15px"></i> {{ news.publish_time }}    <i class="fa fa-eye" style="font-size:15px"></i>
                         {% get_hit_count for news %}  <i class="fa fa-comments-o" style="font-size:15px"></i>  {{ comment_count }} <br></p></span>
                 </center>
-                    <img src="{{ news.image.url }}" alt="{{ news.title }}"><br><br>
+                <img src="{{ news.image.url }}" alt="{{ news.title }}"><br><br>
                 <br><p class="font-weight-normal">{{ news.body | linebreaks}}</p>
 
                 {% if request.user.is_authenticated and request.user.is_superuser %}
             <div class="card-footer text-center">
-            <a href="{% url "news_update" news.slug %}">Tahrirlash</a>
-            <a href="{% url "news_delete" news.slug %}">O'chirish</a>
+            <a href="{% url 'news_update' news.slug %}">Tahrirlash</a>
+            <a href="{% url 'news_delete' news.slug %}">O'chirish</a>
             </div>
                 {% endif %}
         </div>
